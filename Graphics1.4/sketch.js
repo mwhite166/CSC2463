@@ -76,12 +76,15 @@ class Bug {
     }
   }
   display() {
-    if (this.squished) {
-      image(squishedBug, this.x, this.y, 80, 80);
-    }else{
-      let sx = floor(this.frame) * 80;
-      image(bugSprites, this.x, this.y, 80, 80, sx, 0, 80, 80);
+    push();
+    if (this.direction === -1) {
+      translate(this.x + 80, this.y);
+      scale(-1, 1);
+      image(bugSprites, 0, 0, 80, 80, floor(this.frame) * 80, 0, 80, 80);
+    } else {
+      image(bugSprites, this.x, this.y, 80, 80, floor(this.fram) * 80, 0, 80, 80);
     }
+    pop();
   }
   isClicked(mx, my) {
     return mx > this.x && mx < this.x + 80 && my > this.y && my < this.y + 80;
