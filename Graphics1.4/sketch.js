@@ -11,7 +11,7 @@ function preload() {
 }
 //sets up the canvas and the creation of a new bug
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1000, 1000);
   for (let i = 0; i < 5; i++) {
     bugs.push(new Bug(random(width), random(height), 2));
   }
